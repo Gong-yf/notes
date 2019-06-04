@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage[noindent]{ctexcap}
+\usepackage{amsmath,amssymb,amsthm,pifont,curves} % math package
+\usepackage{multicol} % multicolumns
+\usepackage{color}
+
+\title{Active Portfolio Management}
+\author{Gong Yifan}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Chapter 4}
+1.期望收益可以分解为：无风险收益/时间溢价、基准上的暴露$\beta_n\dot\mu_B$、超额基准收益上的暴露$\beta_n\dot\Delta{f_B}$、alpha.\\
+说明：基准上的暴露中，$\mu_B$指的是基准在非常长期（70年+）上的平均收益，对股票市场来说，3\%~7\%一般是合理的。而超额基准收益，指的是短期内，
+基准偏离长期收益的收益$\Delta{f_B}.$\\
+2.考虑均值方差效用$U[P] = f_P - \lambda_T\dot\sigma^2_P$, 其中$\lambda_T$的选取，可以选择$$\lambda_T = \frac{\mu_B}{2\sigma^2_B}$$. 
+在该参数下，考虑由基准和现金构成的组合，最大化效用，得到的是资本市场线和有效前沿的交点。
+
+
+\end{document}
