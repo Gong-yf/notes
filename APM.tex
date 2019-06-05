@@ -13,11 +13,49 @@
 \tableofcontents
 
 \section{Chapter 4}
-1.期望收益可以分解为：无风险收益/时间溢价、基准上的暴露$\beta_n\dot\mu_B$、超额基准收益上的暴露$\beta_n\dot\Delta{f_B}$、alpha.\\
-说明：基准上的暴露中，$\mu_B$指的是基准在非常长期（70年+）上的平均收益，对股票市场来说，3\%~7\%一般是合理的。而超额基准收益，指的是短期内，
+1.期望收益可以分解为：无风险收益/时间溢价、基准上的暴露$\beta_n\mu_B$、超额基准收益上的暴露$\beta_n\Delta{f_B}$、alpha.\\
+说明：基准上的暴露中，$\mu_B$指的是基准在非常长期（70年+）上的平均收益，对股票市场来说，3\%-7\%一般是合理的。而超额基准收益，指的是短期内，
 基准偏离长期收益的收益$\Delta{f_B}.$\\
-2.考虑均值方差效用$U[P] = f_P - \lambda_T\dot\sigma^2_P$, 其中$\lambda_T$的选取，可以选择$$\lambda_T = \frac{\mu_B}{2\sigma^2_B}$$. 
-在该参数下，考虑由基准和现金构成的组合，最大化效用，得到的是资本市场线和有效前沿的交点。
+2.考虑均值方差效用$U[P] = f_P - \lambda_T\sigma^2_P$, 其中$\lambda_T$的选取，可以选择$$\lambda_T = \frac{\mu_B}{2\sigma^2_B}$$. 
+在该参数下，考虑由基准和现金构成的组合，最大化效用，得到的是资本市场线和有效前沿的交点。\\
+3.超额收益来源于基准择时（获取超额基准收益）或者选股（获取alpha）\\
+4.残差收益$\theta_P = r_P - \beta_P r_B$,主动收益$r_{PA} = r_P - r_B = \theta_P + \beta_{PA} r_B$
 
+\section{Chapter 5}
+1.事前看，alpha是对残差收益的预测。事后看，alpha是已实现的残差收益的平均。\\
+对收益进行回归有\begin{align}
+    r_P(t) = \alpha_P+\beta_P\dots r_B(t) + \epsilon_P(t)
+\end{align}
+那么策略的残差收益为$\theta_P(t) = \alpha_P+\epsilon_P(t).$其中$\alpha_P$是平均残差收益，$\epsilon_P(t)$是均值为0的随机项。\\
+2.$IR_P = \frac{\alpha_P}{\omega_P}$\\
+3.IR和基金经理的激进程度无关（收益和标准差波动尺度相同），但和计算时间区间有关（收益与t正相关，标准差与根号t正相关）
 
+\section{Chapter 6}
+1.fundamental law:$IR = IC*\sqrt{BR}.$~BR是因子数量/相互独立的主动决策的次数（i.e. 成长股和高利润股不是独立的）。
+
+\section{Chapter 10}
+1.预测的层次：naive, raw, refined forecast\\
+naive forecast是共识的预期收益，即benchmark，是无信息的预测。\\
+raw forecast是基于未处理的原始信息做出的预测。\\
+refined forecast是通过预测公式，对raw forecast进行转化后得到的。公式为
+\begin{align}
+    E\{r|g\} = E\{r\}+Cov\{r,g\}\cdot Var^{-1}\{g\}\cdot (g-E\{g\})
+\end{align}
+其中~~~~\begin{minipage}{0.7\linewidth}
+    r = 超额收益向量（N个资产）\\
+    g = raw forecast(K个forecast)\\
+    E\{r\} = naive forecast\\
+    E\{g\} = expected forecast\\
+    E\{r|g\} = informed expected forecast
+\end{minipage}\\
+\\
+定义refined forecast为通过观察g得到的expected return的变化，即
+\begin{align}
+\Phi = E\{r|g\} - E\{r\} = Cov\{r,g\}\cdot Var^{-1}\{g\}\cdot (g-E\{g\})
+\end{align}
+由$Cov\{r,g\} = Corr\{r,g\}\cdot Std\{r\}\cdot Std\{g\},$\\
+\begin{align}
+\Phi = Std\{r\}\cdot Corr\{r,g\}\cdot \left(\frac{g-E\{g\}}{Std\{g\}}\right)
+\end{align}
+上式即为预测公式：refined forecast = volatility·IC·score
 \end{document}
